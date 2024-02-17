@@ -1,6 +1,8 @@
 package homework;
 
-public class User{
+
+
+public class User implements Reportable{
     private final String name;
 
     public User(String name){
@@ -11,12 +13,15 @@ public class User{
         return name;
     }
 
-    public void save(){
+    public void save() {
         Persister persister = new Persister(this);
-        persister.save();
+        persister.saveReported();
     }
 
+    @Override
     public void report(){
         System.out.println("Report for user: " + name);
     }
+
+
 }
